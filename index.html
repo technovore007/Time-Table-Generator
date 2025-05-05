@@ -2,59 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Timetable Generator Wizard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Timetable Generator | Material Design</title>
   <link rel="icon" href="assets/favicon.ico"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 </head>
 <body>
   <div class="wizard-container">
     <h1 class="title">Timetable Generator</h1>
 
-    <div class="progress-bar">
-      <div class="step active" data-step="1">1. Enter</div>
-      <div class="step"      data-step="2">2. Preview</div>
-      <div class="step"      data-step="3">3. Generate</div>
-      <div class="step"      data-step="4">4. View</div>
+    <div class="progress-bar" data-step="1">
+      <div class="step active" data-step="1">Enter Courses</div>
+      <div class="step" data-step="2">Preview</div>
+      <div class="step" data-step="3">Generate</div>
+      <div class="step" data-step="4">View</div>
     </div>
 
     <!-- Step 1: Enter Courses -->
-    <section id="step1" class="step-section">
-      <h2>Step 1: Enter Courses</h2>
+    <section id="step1" class="step-section active">
+      <h2>Enter Your Course Details</h2>
       <div id="courseContainer"></div>
       <div class="button-row">
-        <button id="addCourseBtn" class="btn secondary">+ Add Course</button>
-        <button id="toPreview"   class="btn primary">Next: Preview</button>
+        <button id="addCourseBtn" class="btn secondary icon">
+          <i class="fas fa-plus"></i> Add Course
+        </button>
+        <button id="toPreview" class="btn primary icon">
+          Next <i class="fas fa-arrow-right"></i>
+        </button>
       </div>
     </section>
 
     <!-- Step 2: Preview -->
-    <section id="step2" class="step-section hidden">
-      <h2>Step 2: Preview Courses</h2>
+    <section id="step2" class="step-section">
+      <h2>Review Your Courses</h2>
       <table id="previewTable">
-        <thead><tr><th>Code</th><th>Duration</th><th>Sessions/Wk</th><th>Remove</th></tr></thead>
+        <thead>
+          <tr>
+            <th>Course Code</th>
+            <th>Duration (hrs)</th>
+            <th>Sessions/Week</th>
+            <th>Action</th>
+          </tr>
+        </thead>
         <tbody></tbody>
       </table>
       <div class="button-row">
-        <button id="backToEntry" class="btn secondary">Back</button>
-        <button id="toGenerate"  class="btn primary">Next: Generate</button>
+        <button id="backToEntry" class="btn secondary icon">
+          <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <button id="toGenerate" class="btn primary icon">
+          Generate <i class="fas fa-wand-magic-sparkles"></i>
+        </button>
       </div>
     </section>
 
     <!-- Step 3: Generating -->
-    <section id="step3" class="step-section hidden">
-      <h2>Step 3: Generating Timetable…</h2>
-      <div class="loader"></div>
+    <section id="step3" class="step-section">
+      <h2>Creating Your Timetable</h2>
+      <div class="loader-container">
+        <div class="loader"></div>
+        <p class="progress-text">Optimizing your schedule...</p>
+      </div>
     </section>
 
     <!-- Step 4: View Timetable -->
-    <section id="step4" class="step-section hidden">
-      <h2>Step 4: Your Timetable</h2>
+    <section id="step4" class="step-section">
+      <h2>Your Weekly Schedule</h2>
       <div id="timetableGrid" class="grid-section"></div>
       <div class="button-row">
-        <button id="printBtn"   class="btn primary">Print</button>
-        <button id="restartBtn" class="btn secondary">New</button>
+        <button id="restartBtn" class="btn secondary icon">
+          <i class="fas fa-redo"></i> New Schedule
+        </button>
+        <button id="printBtn" class="btn primary icon">
+          <i class="fas fa-print"></i> Print
+        </button>
       </div>
     </section>
   </div>
