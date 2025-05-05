@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Timetable Generator Wizard</title>
+  <link rel="icon" href="assets/favicon.ico"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <div class="wizard-container">
+    <h1 class="title">Timetable Generator</h1>
+
+    <div class="progress-bar">
+      <div class="step active" data-step="1">1. Enter</div>
+      <div class="step"      data-step="2">2. Preview</div>
+      <div class="step"      data-step="3">3. Generate</div>
+      <div class="step"      data-step="4">4. View</div>
+    </div>
+
+    <!-- Step 1: Enter Courses -->
+    <section id="step1" class="step-section">
+      <h2>Step 1: Enter Courses</h2>
+      <div id="courseContainer"></div>
+      <div class="button-row">
+        <button id="addCourseBtn" class="btn secondary">+ Add Course</button>
+        <button id="toPreview"   class="btn primary">Next: Preview</button>
+      </div>
+    </section>
+
+    <!-- Step 2: Preview -->
+    <section id="step2" class="step-section hidden">
+      <h2>Step 2: Preview Courses</h2>
+      <table id="previewTable">
+        <thead><tr><th>Code</th><th>Duration</th><th>Sessions/Wk</th><th>Remove</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <div class="button-row">
+        <button id="backToEntry" class="btn secondary">Back</button>
+        <button id="toGenerate"  class="btn primary">Next: Generate</button>
+      </div>
+    </section>
+
+    <!-- Step 3: Generating -->
+    <section id="step3" class="step-section hidden">
+      <h2>Step 3: Generating Timetable…</h2>
+      <div class="loader"></div>
+    </section>
+
+    <!-- Step 4: View Timetable -->
+    <section id="step4" class="step-section hidden">
+      <h2>Step 4: Your Timetable</h2>
+      <div id="timetableGrid" class="grid-section"></div>
+      <div class="button-row">
+        <button id="printBtn"   class="btn primary">Print</button>
+        <button id="restartBtn" class="btn secondary">New</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/timetable.js"></script>
+</body>
+</html>
