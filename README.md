@@ -123,6 +123,7 @@ The timetable generator can be easily customized by modifying:
 
 - Currently limited to predefined time slots
 - No persistence (refreshing page clears all data)
+- Does'nt considers lunch breaks
 - Future plans:
   - Local storage for saving timetables
   - Export to calendar formats (iCal, Google Calendar)
